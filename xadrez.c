@@ -4,12 +4,14 @@
 
 int main() {
    
-    const int bispo = 5;        /*Numero de casas que o bisp se move*/
-    const int torre = 5;        /*numero de casas que a torre se move*/
-    const int rainha = 8;       /*numero de casas que a rainha se move*/
+    const int bispo = 5;           /*Numero de casas que o bisp se move*/
+    const int torre = 5;           /*numero de casas que a torre se move*/
+    const int rainha = 8;          /*numero de casas que a rainha se move*/
+    const int cavalobaixo = 2;     /*Número de casas que o cavalo se move para baixo*/
+    const int cavaloesquerda = 1;  /*Numero de casas que o calavo se move para esquerda*/
 
-    int i;                      /*Variável de auxilio para repetições*/
 
+    int i, j;                         /*Variáveis de auxilio para repetições*/
     
     //Movimentação do Bispo utilizando (While)
 
@@ -53,6 +55,26 @@ while (i <= bispo){
 
     } while ( i <= rainha);
     
+    printf("\n");
+
+    //Movimentação do Cavalo utilizando loops aninhados (for e while)
+
+    printf("#### Movimentação do Cavalo ####\n");
+    printf("O cavalo se movimenta em padrão 'L'\n");
+    printf("Movimento de 2 casas para baixo e 1 casa para esquerda\n");
+
+    for (i = 1; i <= cavalobaixo; i++)    /*Loop externo com a função de movimento para baixo*/
+    {  
+        printf("Casa %d: Baixo\n", i);
+    
+        if (i == cavalobaixo) {
+            j = 1;                        /*Loop interno com a função de movimento para esquerda*/
+            while (j <= cavaloesquerda) {
+                printf("Casa %d: Esquerda\n", cavalobaixo + j);
+                j++;
+            }
+        }
+    }    
 
     return 0;
 }
